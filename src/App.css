@@ -33,4 +33,7 @@ body{
   justify-content: center;
 }
 
-.btn{}
+label{
+  display: inline-block;
+  width: 100px;
+}

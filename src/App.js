@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
+import { Movie } from "./movieslist";
 
 const marvel = [
   {
@@ -30,9 +32,39 @@ const marvel = [
 ];
 
 function App() {
-  return (
 
-    <div className="App">
+  const [movie,moviestate] = useState("");
+  const [rating,ratingstate] = useState("");
+  const [poster,posterstate] = useState("");
+  const [summary,summarystate] = useState("");
+
+  return (
+     // <Addcolor/>
+   <div className="App">
+         
+                   <h2>Add Movies Here</h2>
+                   <label>Moviename &nbsp;</label>
+                   <input name="moviename" type="text" className="textBox" onChange={(x)=>{moviestate(x.target.value)}} ></input><br></br>
+                   <label>Rating</label>
+                   <input name="rating" type="text" className="textBox" onChange={(x)=>{ratingstate(x.target.value)}}></input><br></br>
+                   <label>Poster</label>
+                   <input name="Poster" type="text" className="textBox" onChange={(x)=>{posterstate(x.target.value)}}></input><br></br>
+                   <label>Summary</label>
+                   <input name="Summary" type="text" className="textBox" onChange={(x)=>{summarystate(x.target.value)}} ></input><br></br>
+                   <button id="" onClick={()=>{
+                                          let Obj= {
+                                         movie : movie,
+                                         rating : rating,
+                                         poster : poster,          
+                                         summary : summary
+                                          }
+
+                                        marvel.push(Obj);                                   
+                                       
+                   }}>AddMovie</button>
+                   
+                 <br></br>
+
           <section className="movie-list">
       {marvel.map(({movie,rating,poster,summary}) => (
         <Movie
@@ -55,7 +87,10 @@ function App() {
   );
 }
 
-function Counter(){
+
+
+
+/**function Counter(){
   const [dislike,setdislike] = useState(0);
   const [like,setlike] = useState(0);
   return(
@@ -65,8 +100,8 @@ function Counter(){
     </div>
   );
 }
-
-function Movie({ movie, rating, poster, summary }) {
+**/
+/*function Movie({ movie, rating, poster, summary }) {
   return (
     <div class="movie-container">
      
@@ -75,17 +110,36 @@ function Movie({ movie, rating, poster, summary }) {
       <h2 className="movie">{movie}</h2>
       <h2>⭐ Rating:{rating}</h2>
       </div>
-  
       <h2 class="summary">{summary}</h2>
       <div>
       <Counter />
     </div>
     </div>
-    
   );
 }
+*/
 
+/*function Addcolor(){
+  const [color,setColor] = useState("");
+  const styles = {backgroundColor:color};
+ const [colors,setColors] = useState(["pink","orange","crimson"]);
+return(
+  <div>
+    <input style={styles} placeholder="Enter a Color" onChange={(event)=>setColor(event.target.value)} >
+      </input> 
+      
+      <button onClick={()=>setColors([...colors,color])}>Add Color</button>
+      {colors.map((clr)=> < ColorBox clr={clr}/>)}
+  </div>
+);
 
+}
 
+*/
 
+/*function ColorBox({clr}){
+  const styles= {backgroundColor:clr,height:"50px",width:"50px"};
+  return <div style ={styles}></div> ;
+}
+*/
 export default App;
