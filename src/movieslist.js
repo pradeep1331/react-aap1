@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from '@mui/material/Button';
 export {Movie};
 
 function Movie({ movie, rating, poster, summary }) {
@@ -26,8 +27,8 @@ function Movie({ movie, rating, poster, summary }) {
     const [like,setlike] = useState(0);
     return(
       <div className="btn">
-        <button  onClick={()=>setdislike(dislike+1)}>👎 dislike{dislike}</button>
-        <button  onClick={()=>setlike(like+1)}>👍 like{like}</button>
+        <Button variant="outlined"  onClick={()=>setdislike(dislike+1)}>👎 dislike{dislike}</Button>
+        <Button  variant="outlined" onClick={()=>setlike(like+1)}>👍 like{like}</Button>
       </div>
     );
   }
