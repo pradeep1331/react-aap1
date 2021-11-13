@@ -228,11 +228,11 @@ function MovieDetails({movies}){
   return ( 
       <div>
     <iframe width="669" height="361" src={movie.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <div className="movie-container">
+      <div className="movie-container1">
 
-      <div className ="movie-specs"> 
+      <div className ="movie-specs1"> 
       
-      <h2>⭐ Rating:{movie.rating}</h2>
+      <h2>⭐ Rating:{movie.rating}</h2><br></br>  
       <h2 class="summary">{movie.summary}</h2>
       </div>
       </div>
