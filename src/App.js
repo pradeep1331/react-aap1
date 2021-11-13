@@ -77,85 +77,85 @@ function App() {
         </ul>
         </div>
 
-        <Switch>
-          <Route exact path="/">
-           <h1>Welcome to Home Page</h1>
-          </Route>
-          <Route path="/AddMovie">
-          <h2>Add Movies Here</h2>
-      <label>Moviename &nbsp;</label>
-      <Input
-        name="moviename"
-        type="text"
-        className="textBox"
-        onChange={(x) => {
-          moviestate(x.target.value);
-        }}
-      ></Input>
-      <br></br>
-      <label>Rating</label>
-      <Input
-        name="rating"
-        type="text"
-        className="textBox"
-        onChange={(x) => {
-          ratingstate(x.target.value);
-        }}
-      ></Input>
-      <br></br>
-      <label>Poster</label>
-      <Input
-        name="Poster"
-        type="text"
-        className="textBox"
-        onChange={(x) => {
-          posterstate(x.target.value);
-        }}
-      ></Input>
-      <br></br>
-      <label>Summary</label>
-      <Input
-        name="Summary"
-        type="text"
-        className="textBox"
-        onChange={(x) => {
-          summarystate(x.target.value);
-        }}
-      ></Input>
-      <br></br>
-      <Button id="" variant="contained" onClick={addMovie}>
-        AddMovie
-      </Button>
-          </Route>
-          <Route path="/Movies">        
+          <Switch>
+            <Route exact path="/">
+            <h1>Welcome to Home Page</h1>
+            </Route>
+            <Route path="/movies/:id">
+            <MovieDetails movies={movies}/>
+            </Route>
+            <Route path="/AddMovie">
+            <h2>Add Movies Here</h2>
+        <label>Moviename &nbsp;</label>
+        <Input
+          name="moviename"
+          type="text"
+          className="textBox"
+          onChange={(x) => {
+            moviestate(x.target.value);
+          }}
+        ></Input>
+        <br></br>
+        <label>Rating</label>
+        <Input
+          name="rating"
+          type="text"
+          className="textBox"
+          onChange={(x) => {
+            ratingstate(x.target.value);
+          }}
+        ></Input>
+        <br></br>
+        <label>Poster</label>
+        <Input
+          name="Poster"
+          type="text"
+          className="textBox"
+          onChange={(x) => {
+            posterstate(x.target.value);
+          }}
+        ></Input>
+        <br></br>
+        <label>Summary</label>
+        <Input
+          name="Summary"
+          type="text"
+          className="textBox"
+          onChange={(x) => {
+            summarystate(x.target.value);
+          }}
+        ></Input>
+        <br></br>
+        <Button id="" variant="contained" onClick={addMovie}>
+          AddMovie
+        </Button>
+            </Route>
+            <Route path="/Movies">        
 
-      <section className="movie-list">
-        {movies.map(({ movie, rating, poster, summary },index) => (
-          <Movie
-        
-           index={index}
-            movie={movie}
-            rating={rating}
-            poster={poster}
-            summary={summary}
-          />
-        ))}
-      </section>
-      </Route>
-
-          <Route path="/movies/:id">
-          <MovieDetails movies={movies}/>
-          </Route>
-
-          <Route path="/Color">
-          <Addcolor/>
-          </Route>
-          <Route exact path="**"> 
-           <NotFound />
-
-          </Route>
+        <section className="movie-list">
+          {movies.map(({ movie, rating, poster, summary },index) => (
+            <Movie
           
-        </Switch>
+            index={index}
+              movie={movie}
+              rating={rating}
+              poster={poster}
+              summary={summary}
+            />
+          ))}
+        </section>
+        </Route>
+
+         
+            <Route path="/Color">
+            <Addcolor/>
+            </Route>
+            <Route exact path="**"> 
+            <NotFound />
+
+            </Route>
+            
+          </Switch>
         
      
     </div>
