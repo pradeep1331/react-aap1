@@ -1,21 +1,20 @@
-import { useState } from "react";
-import Button from '@mui/material/Button';
+import { useState,useEffect } from "react";
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+
 import Badge from '@mui/material/Badge';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';  
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import { useHistory } from "react-router-dom";
-import EditIcon from '@mui/icons-material/Edit';
-import {Link,Redirect,Route,Switch} from "react-router-dom";
+
+
+
 export {Movie};
 
 
-function Movie({ movie, rating, poster, summary,index }) {
+function Movie({ movie, rating, poster, summary,id,deleteButton,editButton }) {
  // const [show,setShow] = useState(true);
  // const styles = {};
   
@@ -32,21 +31,18 @@ function Movie({ movie, rating, poster, summary,index }) {
           {show ?<ExpandLessIcon/>:<ExpandMoreIcon/>}
         
         </IconButton> 
-        <IconButton color="primary" onClick={()=>{history.push(`/movies/${index}`)}}>
+        <IconButton color="primary" onClick={()=>{history.push(`/movies/${id}`)}}>
           <VideoLibraryIcon/>
           </IconButton> 
-          <IconButton >
-          <DeleteIcon/>
-          </IconButton> 
-          <IconButton >
-          <EditIcon />
-          </IconButton> 
+           
+           {deleteButton}
+            {/** Adding Edit Icon button */}
+           {editButton}
         </h2>
       
         <h2>⭐ Rating:{rating}</h2>
     
         </div>
-    
         {/* <Button onClick={()=>setShow(!show)} style={{marginBottom:"10px"}} variant="outlined">{show ?"Hide":"show"} Description</Button>*/}
         <CardContent>
         <h2 style={styles} class="summary">{summary}</h2>
@@ -55,7 +51,9 @@ function Movie({ movie, rating, poster, summary,index }) {
         <Counter />
       
       </div>
+      
       </Card>
+      
     );
   }
 

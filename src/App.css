@@ -1,4 +1,8 @@
 
+
+.App{
+  min-height: 100vh;
+}
 .movieposter{
   height: 500px;
   width: 450px;
@@ -25,10 +29,6 @@
   font-size: 20px;
 }
 
-body{
-  margin: 40px;
-}
-
 .movie-list{
   display: flex;
   gap:40px;  
@@ -44,3 +44,6 @@ label{
 .movie-specs1{
   width:669px;
 }
+
+
+
