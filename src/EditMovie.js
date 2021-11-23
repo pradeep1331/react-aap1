@@ -39,18 +39,19 @@ export function EditMovie({ movies, setMovies }) {
  
     fetch("https://6199446f9022ea0017a7adfb.mockapi.io/movies/"+id,{method:"PUT",body:JSON.stringify(updatedMovie),
     headers:{"Content-type":"application/json"}})
-    
-    history.push("/Movies");
+     .then(history.push("/Movies"));
 
   };
 
 
   return (
+
+    
    
         <div>
         <h2>Edit Movies Here</h2>
         <label>Movie Name &nbsp;</label>
-        <Input name="moviename" type="text" className="textBox" onChange={(x) => {moviestate(x.target.value);}}></Input>
+        <Input name="moviename" type="text" className="textBox" value={moviedetail.name} onChange={(x) => {moviestate(x.target.value);}}></Input>
         <br></br>
         <label>Rating</label>
         <Input name="rating" type="text" className="textBox" onChange={(x) => {ratingstate(x.target.value);}}></Input>

@@ -19,41 +19,11 @@ import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { Basicforms } from "./Basicforms";
 
 function App() {
 
-  const [movies, setMovies] = useState([
-    {
-      id :100,
-      movie: "Antman",
-      rating: 7,
-      poster:
-        "https://www.denofgeek.com/wp-content/uploads/2019/04/ant-man-1-main.jpg?resize=768%2C432",
-      summary:
-        "Ant-Man is a 2015 American superhero film based on the Marvel Comics characters of the same name: Scott Lang and Hank Pym.",
-        trailer:"https://www.youtube.com/embed/pWdKf3MneyI"
-    },
-    {
-      id:200,
-      movie: "Ironman",
-      rating: 9,
-      poster:
-        "https://www.cnet.com/a/img/bZaqv6tPvT44-cop4ZL2gG3j5wE=/940x0/2020/01/17/7da55a03-ac5b-4ec1-b59b-6b3c2414e68b/egdt5idw4aittju.jpg",
-      summary:
-        "Iron Man is a superhero appearing in American comic books published by Marvel Comics. The character was co-created by writer and editor Stan Lee",
-        trailer:"https://www.youtube.com/embed/8ugaeA-nMTc"
-    },
-    {
-      id:300,
-      movie: "BlackPanther",
-      rating: 8,
-      poster:
-        "https://image.cnbcfm.com/api/v1/image/102129219-544fe3109623b.jpg?v=1497046818&w=1600&h=900",
-      summary:
-        "Black Panther is a 2018 American superhero film based on the Marvel Comics character of the same name.",
-        trailer:"https://www.youtube.com/embed/xjDjIWPwcPU"
-    },
-  ]);
+  const [movies, setMovies] = useState([]);
 
    const history = useHistory();
      
@@ -94,13 +64,16 @@ function App() {
           {/* Change the url bar but dont refresh */}
         Colors Page
           </Button>
+          <Button color="inherit" onClick={()=>history.push("/Basicform")} >
+            Basic form
+          </Button>
           <Button color="inherit" onClick={()=>history.push("/addMovie")}>
           {/* Change the url bar but dont refresh */}
         Add Movie
           </Button>
-          <Button color="inherit" onClick={()=>{setMode(mode==="light"?"dark":"light")}} >
+          <Button className="light-switch" color="inherit" onClick={()=>{setMode(mode==="light"?"dark":"light")}} >
 
-          <IconButton color="inherit">
+          <IconButton color="inherit" >
                 {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>
            
@@ -159,6 +132,9 @@ function App() {
             <Route path="/Color">
             <Addcolor/>
             </Route>
+            <Route path="/Basicform">
+            <Basicforms/>
+            </Route>
             <Route exact path="**"> 
             <NotFound />
             </Route>
@@ -183,4 +159,5 @@ export function ColorBox({clr}){
 }
 
 export default App;
+
 
