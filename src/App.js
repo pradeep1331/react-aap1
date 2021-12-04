@@ -118,7 +118,7 @@ function App() {
                 <DeleteIcon />
                 </IconButton> }
 
-              editButton={ <IconButton color="secondary" onClick={()=>{
+                editButton={ <IconButton color="secondary" onClick={()=>{
                 history.push("/movies/edit/"+id);  
                       }} >
   <EditIcon />
